@@ -119,10 +119,17 @@ router.post('/post',function (req,res,next) {
 //增加一个分类
 router.post('/theme',function (req,res) {
   let newTheme = new Theme(req.body);
-  newTheme.save(function (err,theme) {
-    if(err){throw err}
-    res.status(200).json(theme);
-  })
+  let newThemeName = req.body.name;
+  Theme.findOne({name:newThemeName},function (err,theme) {
+    if(err)throw err;
+    if(theme){
+      res.status(201).json({msg:"该主题已存在"});
+    }
+    newTheme.save(function (err,theTheme) {
+      if(err){throw err}
+      res.status(200).json(theTheme);
+    })
+  });
 });
 
 //根据postId获取post

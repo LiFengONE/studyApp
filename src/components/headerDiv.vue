@@ -35,15 +35,6 @@
                 </div>
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Remember me
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Sign in</button>
                   </div>
                 </div>
@@ -93,7 +84,7 @@
         </template>
       </div>
       <div id="appTitle">
-        <span>选课系统</span>
+        <span>良师益友</span>
       </div>
     </template>
     <div id="search" @click="searchClick">
@@ -251,9 +242,10 @@
         font-size: 25px;
       }
       .userPicture{
+        margin-top: 35px;
         margin-bottom: 10px;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
       }
     }
     #appTitle{

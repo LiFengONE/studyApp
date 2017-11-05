@@ -7,7 +7,7 @@
             {{post.title}}
           </router-link>
         </div>
-        <div class="time">{{time}}</div>
+        <div class="time">{{publishedTime}}</div>
       </div>
       <div class="tags">
         <span v-for="(tag , index) in post.tags" :key="index">
@@ -18,8 +18,8 @@
       </div>
       <div class="content">{{post.content}}</div>
       <div class="postFooter">
-        <div class="author">天才锋</div>
-        <div class="praiseNum">158评</div>
+        <div class="author">{{post.authorEmail}}</div>
+        <div class="praiseNum">{{post.commentNum}}评</div>
       </div>
     </div>
   </div>
@@ -41,14 +41,16 @@
         time:'',
       }
     },
+    computed:{
+      publishedTime(){
+        return moment(this.post.publishedTime, "YYYY-MM-DD-HH-mm-ss").fromNow();
+      }
+    },
     props:['post'],
     methods : {
-      getTime : function () {
-        this.time = moment("2017-10-11-12-30-55", "YYYY-MM-DD-HH-mm-ss").fromNow();
-      },
+
     },
     mounted(){
-      this.getTime();
     }
   }
 </script >
